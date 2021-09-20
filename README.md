@@ -1,8 +1,8 @@
-# Group TEAM_NUMBER
-Group Name: TEAM_NAME
+#Group56
+Group Name: Right on Time
 
-[MVP Link](http://cs196.cs.illinois.edu)
+[MVP Link]https://docs.google.com/document/d/1QYzyw6U_sWDaWZx1OYCcjo8q-N_mPCHiCD-PCOIIZz8/edit 
 
-Team Members: STUDENTS_NETIDS
+Team Members: akdaly2, jt37, joseim2, kaitong4
 
-Project Manager: PM_NETID
+Project Manager: tkim139
