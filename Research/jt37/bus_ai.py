@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-# In[3]:
+# In[1]:
 
 
 import requests
@@ -42,7 +42,7 @@ def actualtime(bus_name, bus_stop):
         # pausing every 5 seconds if it's not, and refreshing
         
     while (time_converter(str(response.json()["time"])) -            time_converter(str(response.json()["departures"][index + 1]["expected"])) < 10):
-        time.sleep(5)                                                    
+        time.sleep(5)
         response = requests.request("GET", url, headers=headers, data=payload)
         
     # returns the now expected time, which is extremely accurate to the actual time arrival
@@ -72,7 +72,7 @@ def recordbus(bus_name):
     # Runs until the bus the user requests for is active
     
     while(exist == False):
-        for (i in range(1, 30)):
+        for i in range(1, 30):
             if response.json()[vehicles][i][route_id] == bus_name:
                 current_stop = response.json()[vehicles][i][trip][origin_stop_id]
                 destination = response.json()[vehicles][i][trip][destination_stop_id]
@@ -86,13 +86,13 @@ def recordbus(bus_name):
     response = requests.request("GET", url, headers=headers, data=payload)
     while response.json()[vehicles][next_stop_id] != destination:
         with open("bus_output.txt","a") as f:
-            f.write("Something: {} \n".format(actualtime(bus_name, current_stop)))
+            f.write("{},{},{},{},{} \n".format(bus_name, direction, current_stop, route_id, actualtime(bus_name, current_stop)))
             current_stop = response.json()[vehicles][next_stop_id]
             
     # runs one final time on the final destination stop
             
     with open("bus_output.txt","a") as f:
-        f.write("Something: {}".format(actualtime(bus_name, destination))))
+        f.write("{},{},{},{},{} \n".format(bus_name, direction, destination, route_id, actualtime(bus_name, current_stop)))
     
 
 
