@@ -9,7 +9,7 @@ print(response.json()["time"])
 print(response.json()["departures"][0]["stop_id"])
 print(response.json()["departures"][0]["headsign"])
 print(response.json()["departures"][1]["trip"]["direction"])
-print("Sceduled: " + str(response.json()["departures"][1]["scheduled"]))
+print("Scheduled: " + str(response.json()["departures"][1]["scheduled"]))
 print("Expected: " + str(response.json()["departures"][1]["expected"]))
 print(str(response.json()["departures"][1]["expected_mins"]) + " mins")
 
