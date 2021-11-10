@@ -6,7 +6,7 @@ import csv
 from time import time, sleep
 import time
 ### enter your own API key
-url = "https://developer.cumtd.com/api/v2.2/json/getdeparturesbystop?key==user_key&stop_id=iu&count=10"
+url = "https://developer.cumtd.com/api/v2.2/json/getdeparturesbystop?key=31e59cb80bd1437c9091e4402df9824f&stop_id=iu&count=10"
 header = [" curr_time ", " stop_id ", " bus_num(headsign) ", " scheduled_time ", " expected_time ", " expected_mins "]
 payload = {}
 headers = {}
@@ -16,12 +16,12 @@ headers = {}
 ### writes data into a CSV 
 ### Need to put r in front of link in order for function to read data.
 ### Ex: writeData(r"C:Users\user\place", int(time.time()), int(time.time() + 30), 3)
-def writeData(link, start_time, end_time, gap):
+def write_data(link, start_time, end_time, gap):
     ### creating the writer
     f = open(link, "w", encoding = "UTF8", newline = '')
     writer = csv.writer(f)
     writer.writerow(header)
-    for i in range(start_time, end_time, gap):
+    for _ in range(start_time, end_time, gap):
         ### stops function from running for gap seconds
         sleep(gap)
         ### need to request every gap seconds to get current data
@@ -35,5 +35,4 @@ def writeData(link, start_time, end_time, gap):
         [response.json()["departures"][1]["expected"]] +
         [response.json()["departures"][1]["expected_mins"]])
     f.close()
-
-
+write_data(r"C:\Users\ad120\OneDrive\Group56-FA21\CUMTD_API_Data", int(time.time()), int(time.time() + 800), 20)
