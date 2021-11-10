@@ -6,7 +6,7 @@ import csv
 from time import time, sleep
 import time
 ### enter your own API key
-url = "https://developer.cumtd.com/api/v2.2/json/getdeparturesbystop?key==user_key&stop_id=iu&count=10"
+url = "https://developer.cumtd.com/api/v2.2/json/getdeparturesbystop?key=31e59cb80bd1437c9091e4402df9824f&stop_id=iu&count=10"
 header = [" curr_time ", " stop_id ", " bus_num(headsign) ", " scheduled_time ", " expected_time ", " expected_mins "]
 payload = {}
 headers = {}
@@ -35,3 +35,4 @@ def write_data(link, start_time, end_time, gap):
         [response.json()["departures"][1]["expected"]] +
         [response.json()["departures"][1]["expected_mins"]])
     f.close()
+write_data(r"C:\Users\ad120\OneDrive\Group56-FA21\CUMTD_API_Data", int(time.time()), int(time.time() + 800), 20)
