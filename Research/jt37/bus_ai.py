@@ -1,11 +1,12 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-# In[1]:
+# In[3]:
 
 
 import requests
 import time
+import key
 
 # Converts "T-notation time" into seconds from 00:00
 def time_converter(time):
@@ -17,8 +18,8 @@ def time_converter(time):
 # Gives the actual time of bus arrival with parameters being a bus name and a bus stop
 
 def actualtime(bus_name, bus_stop):
-    url = "https://developer.cumtd.com/api/v2.2/json/getdeparturesbystop?key=cde8e82f02cb488daa290433126c745f&stop_id=" + bus_stop + "&count=15"
-    response = requests.request("GET", url, headers=headers, data=payload)
+    url = "https://developer.cumtd.com/api/v2.2/json/getdeparturesbystop?key=" + key.get_key() + "&stop_id="     + bus_stop + "&count=15"
+    response = requests.request("GET", url, headers=headers)
     list1 = []
     
     # Creates a list of bus names to iterate through and look for desired bus
@@ -36,7 +37,7 @@ def actualtime(bus_name, bus_stop):
     # Narrows down which bus is being tracked and prevents code from proceeding until it is within 2 minutes of arrival
     while response.json()["departures"][index + 1]["expected_mins"] > 2:
         time.sleep(30)
-        response = requests.request("GET", url, headers=headers, data=payload)
+        response = requests.request("GET", url, headers=headers)
         
         # Tracks down when the bus is within 10 seconds of estimated time of arrival,
         # pausing every 5 seconds if it's not, and refreshing
@@ -53,8 +54,8 @@ def actualtime(bus_name, bus_stop):
 # the bus name to be tracked as a parameter
 
 def recordbus(bus_name):
-    url = "https://developer.cumtd.com/api/v2.2/json/getvehicles?key=cde8e82f02cb488daa290433126c745f"
-    response = requests.request("GET", url, headers=headers, data=payload)
+    url = "https://developer.cumtd.com/api/v2.2/json/getvehicles?key=" + key.get_key()
+    response = requests.request("GET", url, headers=headers)
     current_stop = ""
     
     # stop for the final destination
@@ -82,8 +83,8 @@ def recordbus(bus_name):
     # Iterates through the bus system like a linked list, setting the stop to keep track of 
     # as the next one after the current stop is evaluated
     
-    url = "https://developer.cumtd.com/api/2.2/json/getvehicle?key=cde8e82f02cb488daa290433126c745f&vehicle_id"     + vehicle_id
-    response = requests.request("GET", url, headers=headers, data=payload)
+    url = "https://developer.cumtd.com/api/2.2/json/getvehicle?key=" + key.get_key()     + vehicle_id
+    response = requests.request("GET", url, headers=headers)
     while response.json()[vehicles][next_stop_id] != destination:
         with open("bus_output.txt","a") as f:
             f.write("{},{},{},{},{} \n".format(bus_name, direction, current_stop, route_id, actualtime(bus_name, current_stop)))
