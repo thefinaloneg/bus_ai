@@ -98,6 +98,8 @@ def bulk_difference(stop_id, sc_ex):
                 print("Expected time: " + stop_id_info(stop_id)[bus_headsign[i]][4] + "\n")
                 time.sleep(30)
     print(results)
+    #with open("bus_output.txt", "a") as f:
+        #f.write(results)
 
 
 # Outcome of whether the bus came before or after the scheduled or expected time
