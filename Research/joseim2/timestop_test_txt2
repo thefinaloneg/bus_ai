@@ -1,0 +1,46 @@
+Bus arrival queue: 
+['130N Silver', '220N Illini', '120E Teal Orchard Downs', '50E Green']
+Bus arrival queue: 
+['130N Silver', '220N Illini', '120E Teal Orchard Downs', '50E Green']
+Current time difference: -101.0
+Expected time: 2021-11-13T18:33:44-06:00
+
+Bus arrival queue: 
+['130N Silver', '220N Illini', '120E Teal Orchard Downs', '50E Green']
+Current time difference: -119.0
+Expected time: 2021-11-13T18:34:06-06:00
+
+Bus arrival queue: 
+['130N Silver', '220N Illini', '120E Teal Orchard Downs', '50E Green']
+Current time difference: -115.0
+Expected time: 2021-11-13T18:34:06-06:00
+
+Bus arrival queue: 
+['130N Silver', '220N Illini', '120E Teal Orchard Downs', '50E Green']
+Current time difference: -110.0
+Expected time: 2021-11-13T18:34:06-06:00
+
+Bus arrival queue: 
+['130N Silver', '220N Illini', '120E Teal Orchard Downs', '50E Green']
+Current time difference: -106.0
+Expected time: 2021-11-13T18:34:06-06:00
+
+Bus arrival queue: 
+['130N Silver', '220N Illini', '120E Teal Orchard Downs', '50E Green']
+Current time difference: -101.0
+Expected time: 2021-11-13T18:34:06-06:00
+
+Bus arrival queue: 
+['130N Silver', '220N Illini', '120E Teal Orchard Downs', '50E Green']
+Current time difference: -97.0
+Expected time: 2021-11-13T18:34:06-06:00
+
+Bus arrival queue: 
+['130N Silver', '220N Illini', '120E Teal Orchard Downs', '50E Green']
+Current time difference: -92.0
+Expected time: 2021-11-13T18:34:06-06:00
+
+Bus arrival queue: 
+['220N Illini', '130N Silver', '120E Teal Orchard Downs', '50E Green']
+Break at: -91
+[-101, -119, -114, -110, -105, -101, -97, -91]
