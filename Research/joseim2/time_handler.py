@@ -1,5 +1,6 @@
 import datetime
 import requests
+import key
 
 # 2021-10-23T18:05:36-05:00 -> 18:05:36 for 'soft', datetime for 'hard'
 def time_converter(time, soft_hard):
