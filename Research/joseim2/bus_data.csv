@@ -1,4 +1,1 @@
-stop_id,bus_headsign,route_id,expected_time,true_time
-IU:1,12E Teal Orchard Downs,TEAL,19:03:08,21
-IU:1,220N Illini Limited,ILLINI LIMITED EVENING,19:07:36,-243
-IU:1,130N Silver Limited,SILVER LIMITED EVENING,19:05:01,-28
+stop_id,bus_headsign,route_id,expected_time,true_time
