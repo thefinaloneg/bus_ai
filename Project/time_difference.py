@@ -54,3 +54,6 @@ def bulk_difference(stop_id, sc_ex):
             print('No expected departures for the moment.')
             time.sleep(240)
     print(results)
+
+if __name__ == "__main__":
+    bulk_difference('IU:1', 4)
