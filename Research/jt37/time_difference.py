@@ -13,13 +13,12 @@ def bulk_difference(stop_id, sc_ex):
     if bus_headsign is False:
         print(stop_id + " does not exist.")
         return
+    original_expected = stop_id_retriever.stop_id_info(stop_id)  # this checks to see if there are departures
+    while original_expected is False:
+        time.sleep(180)
     csv_handler.start_csv()
     for i in range(0, 20):  # change depending on how many departures want to be monitored, will run consecutively as a queue for each departure
         bus_headsign = arrive.arrival_queue(stop_id)
-        original_expected = stop_id_retriever.stop_id_info(stop_id)  # this checks to see if there are departures
-        if original_expected is False:
-            print("No departures anytime soon for " + stop_id + ".")
-            return
         try:
             original_expected = stop_id_retriever.stop_id_info(stop_id)[bus_headsign[0]][4]
             current_routeid = stop_id_retriever.stop_id_info(stop_id)[bus_headsign[0]][0]
