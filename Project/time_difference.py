@@ -54,6 +54,3 @@ def bulk_difference(stop_id, sc_ex):
                 results.append(int(time_handler.time_difference(stop_id, bus_headsign[0], sc_ex, original_expected)))
                 time.sleep(30)
     print(results)
-
-
-bulk_difference("IU:1", 4)
