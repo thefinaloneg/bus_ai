@@ -23,7 +23,9 @@ def bulk_difference(stop_id, sc_ex):
             except KeyError:
                 break
             while True:
-                if arrive.arrival_queue(stop_id)[0] != bus_headsign[0]:
+                if arrive.arrival_queue(stop_id)[1] == bus_headsign[0]: # if the values are swapped if block
+                    break
+                elif arrive.arrival_queue(stop_id)[0] != bus_headsign[0]:
                     if len(results) != 0:  # accounts for buses that arrive before the range, improbable but did happen
                         csv_handler.append_csv(stop_id, bus_headsign[0], current_routeid,
                                             time_handler.time_converter(original_expected, "soft"),
@@ -53,7 +55,6 @@ def bulk_difference(stop_id, sc_ex):
         else: # if the arrival queue is empty
             print('No expected departures for the moment.')
             time.sleep(240)
-    print(results)
 
 if __name__ == "__main__":
     bulk_difference('IU:1', 4)
