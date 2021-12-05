@@ -26,7 +26,7 @@ def bulk_difference(stop_id):
             except (KeyError, TypeError) as e:
                 break
             while True:
-                if arrive.arrival_queue(stop_id)[1] == bus_headsign[0]:  # if the values are swapped if block
+                if arrive.arrival_queue(stop_id)[1] == bus_headsign[0]: # if the values are swapped if block
                     break
                 elif arrive.arrival_queue(stop_id)[0] != bus_headsign[0]:
                     if len(results) != 0:  # accounts for buses that arrive before the range, improbable but did happen
